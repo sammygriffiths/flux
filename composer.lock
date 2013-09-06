@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "190affcb86764a09d5353152d5b5d1b5",
+    "hash": "eda5d952f96d1f145a2f195f89a9c099",
     "packages": [
         {
             "name": "pimple/pimple",
@@ -575,57 +575,6 @@
                 "templating"
             ],
             "time": "2013-09-06 10:25:58"
-        },
-        {
-            "name": "viacreative/via-library-module",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "git@bitbucket.org:viacreative/via-library-module.git",
-                "reference": "1.0.0"
-            },
-            "require": {
-                "viacreative/via-library-querybuilder": "1.0.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Via\\Module\\": "src/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Matt Kirwan",
-                    "homepage": "http://www.viacreative.co.uk",
-                    "role": "developer"
-                }
-            ],
-            "description": "Provides a lower level interface for module suitable packages.",
-            "time": "2013-09-06 12:07:11"
-        },
-        {
-            "name": "viacreative/via-library-querybuilder",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "git@bitbucket.org:viacreative/via-library-querybuilder.git",
-                "reference": "1.0.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Via\\QueryBuilder\\": "src/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Matt Kirwan",
-                    "homepage": "http://www.viacreative.co.uk/",
-                    "role": "developer"
-                }
-            ],
-            "description": "A really simple query builder.",
-            "time": "2013-09-06 13:49:17"
         }
     ],
     "packages-dev": [
