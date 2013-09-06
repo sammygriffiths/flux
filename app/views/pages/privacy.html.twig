@@ -1,0 +1,12 @@
+{% extends "base-template.html.twig" %}
+
+{% block title %}{{test}}{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    <h1>{{test}}</h1>
+    <p>
+        Content
+    </p>
+{% endblock %}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <title>{% block title %}{% endblock %}</title>
+        {% endblock %}
+    </head>
+    <body>
+        
+        <div id="content">
+            
+            <ul>
+                {% for item in modules %}
+                    <li>{{ item|e }}</li>
+                {% endfor %}
+            </ul>            
+            <ul>
+                {% for item in pages %}
+                    <li>{{ item|e }}</li>
+                {% endfor %}
+            </ul>
+
+            {% block content %}{% endblock %}
+        </div>
+        
+        <div id="footer">
+            {% block footer %}
+                <hr />
+                &copy;Copyright
+            {% endblock %}
+        </div>
+    </body>
+</html>
