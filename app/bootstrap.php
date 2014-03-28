@@ -23,3 +23,13 @@ foreach($modules as $module)
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
 	'twig.path' => $templatePaths,
 ));
+
+$app->register(new Silex\Provider\FormServiceProvider());
+
+$app->register(new Silex\Provider\TranslationServiceProvider(), array(
+    'locale_fallbacks' => array('en'),
+));
+
+$app->register(new Silex\Provider\ValidatorServiceProvider());
+
+$app->register(new Silex\Provider\SwiftmailerServiceProvider());
