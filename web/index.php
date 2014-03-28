@@ -13,6 +13,76 @@ $app->get('/', function () use ($app, $modules) {
 	return $app['twig']->render('index.html.twig', array());
 });
 
+$app->match('/contact', function (Request $request) use ($app) {
+	
+	$data = array(
+		'name',
+		'email',
+		'number',
+		'enquiry',
+	);
+
+	$form = $app['form.factory']->createBuilder('form', $data)
+		->add('name', 'text', array(
+			'constraints' => array(
+				new Symfony\Component\Validator\Constraints\NotBlank()
+			),
+		))
+		->add('email', 'text', array(
+			'constraints' => array(
+				new Symfony\Component\Validator\Constraints\Email(),
+				new Symfony\Component\Validator\Constraints\NotBlank(),
+			),
+		))
+		->add('number', 'text', array(
+			'constraints' => array(
+				new Symfony\Component\Validator\Constraints\NotBlank()
+			),
+		))
+		->add('enquiry', 'textarea', array(
+			'constraints' => array(
+				new Symfony\Component\Validator\Constraints\NotBlank()
+			),
+		))
+		->getForm();
+
+	$form->handleRequest($request);
+
+	if($form->isValid())
+	{
+		$data = $form->getData();
+
+		$body = "A message has been received from the contact form of WEBSITE:\n\n";
+		$body .= "From: {$data['name']} - {$data['email']}\n";
+		$body .= "Number: {$data['number']}\n";
+		$body .= "Enquiry: ".wordwrap($data['enquiry'], 70);
+
+		$app['swiftmailer.options'] = array(
+			'host' => '',
+			'port' => '',
+			'username' => '',
+			'password' => '',
+			'encryption' => null,
+			'auth_mode' => null
+		);
+
+		$message = \Swift_Message::newInstance()
+			->setSubject('Website Enquiry')
+			->setFrom(array('no-reply@website' => 'Website Contact Form'))
+			->setTo(array(''))
+			->setBody($body);
+
+		$app['mailer']->send($message);
+		
+		return $app->redirect('/contact-success');	
+	}
+
+	return $app['twig']->render('contact.html.twig', array(
+		'form' => $form->createView()
+	));
+})
+->method('GET|POST');
+
 $app->get('/{module}/{page}', function (Request $request, $module, $page) use ($app) {
 
 	$moduleClean = filter_var($module, FILTER_SANITIZE_STRING);
@@ -43,10 +113,6 @@ $app->get('/{page}', function ($page) use ($app) {
 	));
 })
 ->assert('page', implode('|', $pages));
-
-$app->get('/contact', function () use ($app) {
-	return 'Contact Page';
-});
 
 $app->error( function(\Exception $e, $code) {
 
