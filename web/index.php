@@ -10,19 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
 $app->get('/', function () use ($app, $modules) {
-
-	$meta = array(
-		'title' => 'Home Page Window Title',
-		'keywords' => '',
-		'description' => '',
-	);
-
-	return $app['twig']->render('index.html.twig', array(
-		'meta' => $meta,
-		'modules' => $modules,
-		'pages' => $pages,
-		'title' => 'Home'
-	));
+	return $app['twig']->render('index.html.twig', array());
 });
 
 $app->get('/{module}/{page}', function (Request $request, $module, $page) use ($app) {
