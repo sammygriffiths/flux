@@ -10,7 +10,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
 $app->get('/', function () use ($app, $modules) {
-	return $app['twig']->render('index.html.twig', array());
+	return $app['twig']->render('index.html.twig', array(
+		'title' => 'Page Title',
+		'modules' => $modules,
+		'pages' => $pages,
+	));
 });
 
 $app->match('/contact', function (Request $request) use ($app) {
