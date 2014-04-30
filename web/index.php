@@ -114,19 +114,4 @@ $app->get('/{page}', function ($page) use ($app) {
 })
 ->assert('page', implode('|', $pages));
 
-$app->error( function(\Exception $e, $code) {
-
-	switch($code)
-	{
-		case 404:
-			$message = '404 Not Found Message';
-		break;
-		default:
-			$message = 'Generic Error Message';
-		break;
-	}
-	
-	return new Response($message, $code);
-});
-
 $app->run();
