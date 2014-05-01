@@ -25,6 +25,8 @@ function verifyModuleTemplateExists($module = null, $page = null)
 		return false;
 	}
 
+	$template = APP_DIR.'views/'.$module.'/'.$page.'.html.twig';
+	
 	return verifyTemplateIsFile($template);	
 }
 
