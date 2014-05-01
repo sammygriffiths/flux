@@ -83,7 +83,11 @@ $app->match('/contact', function (Request $request) use ($app) {
 	}
 
 	return $app['twig']->render('contact.html.twig', array(
-		'form' => $form->createView()
+		'form' => $form->createView(),
+		'title' => 'Page Title',
+		'meta' => array('title' => 'Page Title'),
+		'modules' => $modules,
+		'pages' => $pages,
 	));
 })
 ->method('GET|POST');
