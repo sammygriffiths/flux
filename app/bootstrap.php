@@ -5,7 +5,7 @@ $app = new Silex\Application();
 $app['debug'] = true;
 
 $modules = array('module',);
-$pages = array('terms', 'privacy', 'cookies', 'sitemap');
+$pages = array('terms', 'privacy', 'cookies', 'sitemap', 'contact-success');
 
 $templateDir = APP_DIR.'/views';
 
