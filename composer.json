@@ -1,13 +1,13 @@
 {
 	"require": {
-		"silex/silex": "1.1.*",
-		"twig/twig": "dev-master",
-		"symfony/twig-bridge": "~2.3",
-		"symfony/form": "~2.3",
-		"symfony/validator": "~2.3",
-		"symfony/config": "~2.3",
-		"symfony/translation": "~2.3",
-		"symfony/locale": "~2.3",
+		"silex/silex": "~1.1",
+		"twig/twig": "1.*",
+		"symfony/twig-bridge": "~2.4",
+		"symfony/form": "~2.4",
+		"symfony/validator": "~2.4",
+		"symfony/config": "~2.4",
+		"symfony/translation": "~2.4",
+		"symfony/locale": "~2.4",
 		"swiftmailer/swiftmailer": "v5.1.0"
 	}
 }
