@@ -1,0 +1,107 @@
+{% extends "base-template.html.twig" %}
+
+{% block title %}Used Car Parts | Morgan Autosalvage | Contact us{% endblock %}
+{% block meta_description %}Contact us on 01287 633573 for quality guaranteed used car parts.{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+
+<script type="text/javascript" src="/missing-js/jquery.validate.js"></script>
+<script type="text/javascript" src="/missing-js/placeholder.js"></script>
+  
+   <div class="pageheader">
+    <div class="container_12">
+			<div class="grid_12">
+				<h1>Contact us</h1>
+			</div>
+    </div>
+   	</div>
+
+   
+   	<div class="container_12">
+	   	<div class="grid_12">
+			Please feel free to use the contact form below with you enquiry. Remember to enter a valid email address so we can get back in touch with you.
+		</div>
+		<br/><br/>
+   		<div class="clear"> </div>
+			<div class="grid_6 contact_form">
+				<form action="#" method="post">
+				    {{ form_widget(form) }}
+				    <input type="submit" name="submit" />
+				</form>
+			</div>
+<div class="grid_5 push_1 left-border">
+<div>
+<div id="map_container">
+<div id="map">
+Loading Map...
+</div>
+</div>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBf-eC4mVZEdavOHIDjIryYHosamuVDfMI&amp;sensor=false"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+    var latlng = new google.maps.LatLng(
+54.533661,-1.011654);
+    var myOptions = {
+      zoom: 13,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      streetViewControl: false,
+        mapTypeControl: false,
+        disableDoubleClickZoom: true,
+        scrollwheel: false,
+        panControl: false,
+        draggable: false
+    };
+    var map = new google.maps.Map(document.getElementById("map"),
+        myOptions);
+    var marker = new google.maps.Marker({
+      position: latlng, 
+      map: map,
+      title:"S. P. &amp; C. Morgan Autosalvage"
+  });
+  });
+  
+</script>
+</div>		
+</div>
+
+<div class="clear">&nbsp;</div>
+
+<div class="grid_3 center top">
+	<h3>Email Us</h3>
+	<p>
+	<a href="mailto:info@morgan-autosalvage.co.uk">info@morgan-autosalvage.co.uk</a></p>
+</div>
+
+<div class="grid_3 center top">
+	<h3>Call Us</h3>
+	<p>01287 633573</p>
+</div>
+
+<div class="grid_3 center top">
+	<h3>Visit Us</h3>
+	<p>A171, Slapewath<br/>
+Guisborough<br/>
+Cleveland<br/>
+TS14 6PX</p>
+</div>
+
+<script type="text/javascript">
+	$('input[placeholder], textarea[placeholder]').placeholder();
+</script>
+
+<div class="grid_3 center top">
+	<h3>Opening Hours</h3>
+	    		<p><strong>Monday - Friday</strong> 8:30-5:30<br/>
+    		<strong>Saturday</strong> 9:00-1:00<br/>
+    		<strong>Sunday</strong> Closed<br/>
+    		<strong>Bank Holiday</strong> Closed</p>
+</div>
+
+</div>
+
+
+{% endblock %}
